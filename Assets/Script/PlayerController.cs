@@ -8,10 +8,12 @@ public class PlayerController : MonoBehaviour
     public float bulletSpeed;                                   //子弹速度
     Rigidbody2D rb;
     AudioSource au;
-    public float fireRate;
+    public float fireRate;                                      //发射频率
     float timer;                                                //计时
-    public GameObject bulletPrefab;                             //子弹
+    public GameObject[] bulletPrefab;                           //子弹
     public Transform firePoint;                                 //发炮位置
+    public GameObject bullet;
+    bool firePlus = false;                                      //是否发射BulletPlus
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +39,12 @@ public class PlayerController : MonoBehaviour
         if(timer > fireRate && Input.GetKey(KeyCode.Space))     //按空格键
         {
             timer = 0;
-            Fire();                                             //调用Fier方法
+            if(firePlus == false){
+                Fire();                                         //调用Fier方法
+            }
+            if(firePlus == true){
+                FirePlus();                                     //调用FierPlus方法
+            }
         }
     }
 
@@ -45,12 +52,50 @@ public class PlayerController : MonoBehaviour
     void Fire()
     {
         au.Play();                                              //播放发射子弹的音效
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+
+        bullet = Instantiate(bulletPrefab[0], firePoint.position, Quaternion.identity);
 
         //抓取子弹的Rigidbody2D组件，速度方向设置为上，大小设置为bulletSpeed
         bullet.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletSpeed;
 
         //定时销毁子弹
         Destroy(bullet, 0.7f);
+    }
+
+    //发射子弹Plus的方法
+    void FirePlus()
+    {
+        au.Play();                                              //播放发射子弹的音效
+        
+        bullet = Instantiate(bulletPrefab[1], firePoint.position, Quaternion.identity);
+
+        //抓取子弹的Rigidbody2D组件，速度方向设置为上，大小设置为bulletSpeed
+        bullet.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletSpeed;
+
+        //定时销毁子弹
+        Destroy(bullet, 0.7f);
+    }
+
+    // 玩家碰撞方法
+    private void OnTriggerEnter2D(Collider2D collision) 
+    {
+        //如果碰到敌机子弹
+        if(collision.CompareTag("EnemyBullet"))
+        {
+            Destroy(collision.gameObject);                        //销毁子弹
+            FindObjectOfType<UIManager>().TakeDamage();           //调用UIManager中的TakeDamage方法
+        }
+        //如果碰到子弹道具
+        if(collision.CompareTag("BulletProp"))
+        {
+            firePlus = true;
+            Destroy(collision.gameObject);                        //销毁子弹道具
+        }
+        //如果碰到生命道具
+        if(collision.CompareTag("LifeProp"))
+        {
+            FindObjectOfType<UIManager>().RestoreHealth();        //调用UIManager的RestoreHealth方法，恢复血量
+            Destroy(collision.gameObject);                        //销毁生命道具
+        }
     }
 }

@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
         scoreText.text = "SCORE:" + zero.Substring(0, zero.Length - score.ToString().Length) + score;  
     }
 
-    // 血量
+    // 掉血
     public void TakeDamage()
     {
         life--;
@@ -61,5 +61,29 @@ public class UIManager : MonoBehaviour
             FindObjectOfType<GameManager>().GameOver();                                     //调用GameManager的GameOver方法
         }
     }
-   
+
+    // 恢复血量
+    public void RestoreHealth()
+    {
+        if(life < 3)
+        {
+            life ++;
+            // 血量为3
+            if(life == 3)
+            {
+                // 三张图全部显示
+                first.enabled = true;
+                second.enabled = true;
+                third.enabled = true;
+            }
+            // 血量为2
+            else if(life == 2)
+            {
+                // 隐藏第三张图
+                first.enabled = true;
+                second.enabled = true;
+                third.enabled = false;
+            }
+        }
+    }
 }

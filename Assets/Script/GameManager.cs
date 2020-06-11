@@ -39,14 +39,17 @@ public class GameManager : MonoBehaviour
     void SpawnNewEnemy()
     {
         Vector2 spawnPos = new Vector2(Random.Range(-28f, 28f), 15f);             //在区间内生成敌人
+        
         int num = Random.Range(1, 3);                                             //生成随机数范围1-2
 		if(num == 1){
             //实例化enemyPrefab[]敌人数组中的第一个
             enemy = Instantiate(enemyPrefab[0], spawnPos, Quaternion.identity);
+            FindObjectOfType<Enemy>().Fire();                                     //调用Enemy的Fire方法，在实例化敌人后让敌人开火
         }
         else if(num == 2){
             //实例化enemyPrefab[]敌人数组中的第二个
             enemy = Instantiate(enemyPrefab[1], spawnPos, Quaternion.identity);
+            FindObjectOfType<Enemy>().Fire();                                     //调用Enemy的Fire方法，在实例化敌人后让敌人开火
         }
         enemy.transform.parent = enemyHolder;                                     //将enemyHolder作为生成敌人的父级
     }
