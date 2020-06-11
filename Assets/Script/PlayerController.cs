@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;                                     //玩家移速
     public float bulletSpeed;                                   //子弹速度
     Rigidbody2D rb;
+    AudioSource au;
     public float fireRate;
     float timer;                                                //计时
     public GameObject bulletPrefab;                             //子弹
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();                       //抓取Rigidbody2D游戏组件，并保存在rb里
+        au = GetComponent<AudioSource>();                       //抓取AudioSource游戏组件，并保存在au里
     }
 
     // Update is called once per frame
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour
     //发射子弹的方法
     void Fire()
     {
+        au.Play();                                              //播放发射子弹的音效
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
         //抓取子弹的Rigidbody2D组件，速度方向设置为上，大小设置为bulletSpeed
