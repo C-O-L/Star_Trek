@@ -22,6 +22,16 @@ public class Enemy : MonoBehaviour
         rb.velocity = Vector2.down * moveSpeed;                             //设置速度的方向和大小
     }
 
+    private void Update() {
+        // 开火
+        timer += Time.deltaTime;
+        if(timer > fireRate)                                                //每隔fireRate发一颗子弹
+        {
+            Fire();
+            timer = 0;
+        }
+    }
+
     //发射子弹的方法
     public void Fire()
     {
@@ -34,8 +44,14 @@ public class Enemy : MonoBehaviour
 
     //子弹碰撞
     private void OnTriggerEnter2D(Collider2D collision) {
-        //如果碰到子弹
+        //如果碰到普通子弹
         if(collision.CompareTag("Bullet"))
+        {
+            Destroy(collision.gameObject);                                  //销毁子弹
+            TakeDamage();                                                   //调用TakeDamage方法
+        }
+        //如果碰到子弹plus
+        if(collision.CompareTag("BulletPlus"))
         {
             Destroy(collision.gameObject);                                  //销毁子弹
             TakeDamage();                                                   //调用TakeDamage方法
@@ -67,7 +83,7 @@ public class Enemy : MonoBehaviour
         //在自己的位置生成exploPrefab，不旋转, 并保存在explode中
         GameObject explode = Instantiate(exploPrefab, transform.position, Quaternion.identity);
         // 玩家加分
-        FindObjectOfType<UIManager>().GetScore(20);                         //调用UIManager中的GetScore方法,每销毁一架敌机加20分
+        FindObjectOfType<UIManager>().GetScore(50);                         //调用UIManager中的GetScore方法,每销毁一架敌机加**分
         Destroy(explode, 0.5f);                                             //0.5s之后销毁explode
         Destroy(gameObject);                                                //销毁自己
 

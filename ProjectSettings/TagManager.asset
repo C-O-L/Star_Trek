@@ -8,9 +8,11 @@ TagManager:
   - Enemy
   - Border
   - EnemyBullet
-  - EnemyButton
   - BulletProp
   - LifeProp
+  - Boss1
+  - Boss2
+  - BulletPlus
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - BossBullet
+  - Boss
   - 
   - 
   - 

@@ -153,10 +153,11 @@ fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 ee0cef6caaac8ae485bfa82f000f0f7b Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 5fc094978ce3e3591a7500ed380d854a Unity.Analytics.DataPrivacy.dll:UnityEngine.Analytics.DataPrivacyButton
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-a416a4d699cb9459c4d16bd0a1036f78 Assembly-CSharp.dll:.GameManager
+636d34af58d65316c6de7d582bb53938 Assembly-CSharp.dll:.GameManager
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 5372ed2ce39229b1ac910757999a8be2 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
-eb4f7abc3e41d48ddf8ec4ff69a007bd Assembly-CSharp.dll:.UIManager
+13a6a106301decd99d0b8e944aef55c4 Assembly-CSharp.dll:.UIManager
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 dd3265124471dcf50b7791739ea9ea40 Assembly-CSharp.dll:.Enemy
+1cd17435ce4c86d540d3cfa45b1362b5 Assembly-CSharp.dll:.BossOne

@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 6047350083128518205}
   m_Layer: 0
   m_Name: Enemy2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,7 +187,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 225687752337137008, guid: 62c3fb36351f0134898600db388e3251,
     type: 3}
   firePoint: {fileID: 5322561115123331927}
-  fireRate: 0.2
+  fireRate: 2.5
   exploPrefab: {fileID: 8672706498913736987, guid: 6277d6f4f2ba6f84680acceac91d457f,
     type: 3}
   PropTitle:
