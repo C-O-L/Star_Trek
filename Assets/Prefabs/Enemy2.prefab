@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5322561115123331927}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 6047350083128518207}
   - component: {fileID: 6047350083128518204}
   - component: {fileID: 6047350083128518205}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0854a2cf9f57198419793a2937b6469b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 3
   bulletSpeed: 15
   bulletPrefab: {fileID: 225687752337137008, guid: 62c3fb36351f0134898600db388e3251,
     type: 3}

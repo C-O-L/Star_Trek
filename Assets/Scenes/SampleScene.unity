@@ -1931,7 +1931,6 @@ MonoBehaviour:
   enemy: {fileID: 0}
   gameOverPanel: {fileID: 194226733}
   gameStartPanel: {fileID: 1825982760}
-  isEnemy: 1
 --- !u!4 &1763814997
 Transform:
   m_ObjectHideFlags: 0
@@ -2167,7 +2166,7 @@ GameObject:
   - component: {fileID: 1833350162}
   - component: {fileID: 1833350161}
   - component: {fileID: 1833350167}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2428,7 +2427,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1842094557}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

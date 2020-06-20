@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9099705208092688097}
   - component: {fileID: 6340681444446464121}
   - component: {fileID: 8303722981118589373}
+  - component: {fileID: 7535774398591342221}
   m_Layer: 9
   m_Name: Boss2
   m_TagString: Boss2
@@ -138,3 +139,29 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 9
+--- !u!114 &7535774398591342221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9099705208092688102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133f63da338fcb643a46555b0af50af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0
+  bulletSpeed: 8
+  fireDirection: {x: 0, y: 0, z: 0}
+  startQuaternion: {x: 0, y: 0, z: 0, w: 0}
+  secondQuaternion: {x: 0, y: 0, z: 0, w: 0}
+  bulletPrefab: {fileID: 5190884215831056042, guid: 32bcfd5c786dea545b99fb49323b7a49,
+    type: 3}
+  fireRate: 4
+  exploPrefab: {fileID: 8672706498913736987, guid: 6277d6f4f2ba6f84680acceac91d457f,
+    type: 3}
+  PropTitle:
+  - {fileID: 476923163327969647, guid: c3b28120c84845440a6585481dfa0072, type: 3}
+  - {fileID: 5687675654525569099, guid: b06dc666a6ced18489f86fcc22fec2f4, type: 3}
+  prop: {fileID: 0}

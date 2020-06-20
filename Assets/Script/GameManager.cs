@@ -16,8 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameStartPanel;                                               //游戏开始图层
     bool isPlaying = true;                                                          //游戏是否开始
     public static GameManager instance = null;				                        //GameManager的静态实例，允许任何其他脚本访问它。
-    [HideInInspector] public bool isEnemy = true;		                            //布尔值检查是否生成敌人
-    float timer1 = 0f;                                                                   //生成boss1后50秒开始生成普通敌人
+    // [HideInInspector] public bool isEnemy = true;		                            //布尔值检查是否生成敌人
     
     
     private void Start() 
@@ -44,44 +43,33 @@ public class GameManager : MonoBehaviour
     //生成敌人的方法
     public void SpawnNewEnemy()
     {
-        if(isEnemy == true){
-            Vector2 spawnPos = new Vector2(Random.Range(-28f, 28f), 15f);             //在区间内生成敌人
+        Vector2 spawnPos = new Vector2(Random.Range(-28f, 28f), 15f);             //在区间内生成敌人
             
-            int num = Random.Range(1, 3);                                             //生成随机数范围1-2
-            if(num == 1){
-                //实例化enemyPrefab[]敌人数组中的第一个
-                enemy = Instantiate(enemyPrefab[0], spawnPos, Quaternion.identity);
-                FindObjectOfType<Enemy>().Fire();                                     //调用Enemy的Fire方法，在实例化敌人后让敌人开火
-            }
-            else if(num == 2){
-                //实例化enemyPrefab[]敌人数组中的第二个
-                enemy = Instantiate(enemyPrefab[1], spawnPos, Quaternion.identity);
-                FindObjectOfType<Enemy>().Fire();                                     //调用Enemy的Fire方法，在实例化敌人后让敌人开火
-            }
-            enemy.transform.parent = enemyHolder;                                     //将enemyHolder作为生成敌人的父级
+        int num = Random.Range(1, 4);                                             //生成随机数范围1-2
+        if(num == 1){
+            //实例化enemyPrefab[]敌人数组中的第一个
+            enemy = Instantiate(enemyPrefab[0], spawnPos, Quaternion.identity);
+            FindObjectOfType<Enemy>().Fire();                                     //调用Enemy的Fire方法，在实例化敌人后让敌人开火
         }
+        else if(num == 3){
+            //实例化enemyPrefab[]敌人数组中的第二个
+            enemy = Instantiate(enemyPrefab[1], spawnPos, Quaternion.identity);
+            FindObjectOfType<Enemy>().Fire();                                     //调用Enemy的Fire方法，在实例化敌人后让敌人开火
+        }
+        enemy.transform.parent = enemyHolder;                                     //将enemyHolder作为生成敌人的父级
+        
     }
 
     // 生成第一个boss的方法
     public void SpawnNewBoss1()
     {
         Instantiate (boss1, new Vector3 (0f, 10.0f, 0f), Quaternion.identity);
-        isEnemy = false;                                                            //停止生成普通敌人
-
-        // 生成boss1后20秒，重新开始生成敌人
-        timer1 += Time.deltaTime;
-        if(timer1 > 20.0f)
-        {
-            timer = 0;
-            isEnemy = true;
-        }
     }
 
     // 生成第二个boss的方法
     public void SpawnNewBoss2()
     {
         Instantiate (boss2, new Vector3 (0f, 9.0f, 0f), Quaternion.identity);
-        // isEnemy = false;
     }
 
     // 游戏开始的方法
