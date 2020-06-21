@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
         //在自己的位置生成exploPrefab，不旋转, 并保存在explode中
         GameObject explode = Instantiate(exploPrefab, transform.position, Quaternion.identity);
         // 玩家加分
-        FindObjectOfType<UIManager>().GetScore(50);                         //调用UIManager中的GetScore方法,每销毁一架敌机加**分
+        FindObjectOfType<UIManager>().GetScore(25);                         //调用UIManager中的GetScore方法,每销毁一架敌机加**分
         Destroy(explode, 0.5f);                                             //0.5s之后销毁explode
         Destroy(gameObject);                                                //销毁自己
 
@@ -98,10 +98,14 @@ public class Enemy : MonoBehaviour
 		if(num == 1 || num == 29){
             //实例化PropTitle[]道具数组中的第一个
             prop = Instantiate(PropTitle[0], spawnPos, Quaternion.identity);
+            //定时销毁道具
+            Destroy(prop, 100.0f);
         }
         if(num == 10 || num == 20){
             //实例化PropTitle[]道具数组中的第二个
             prop = Instantiate(PropTitle[1], spawnPos, Quaternion.identity);
+            //定时销毁道具
+            Destroy(prop, 100.0f);
         }
     }
 

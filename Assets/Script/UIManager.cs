@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     public Image first, second, third, fourth, fifth, sixth, seventh;           //7滴血图片                               
     int life = 7;                                                               //7滴血
     int score;                                                                  //计分
-
+    
     // 计分
     public void GetScore(int amount)
     {
@@ -22,13 +22,31 @@ public class UIManager : MonoBehaviour
         // scoreText.text = "SCORE:" + zero.Substring(0, zero.Length - score.ToString().Length) + score;
 
         // 玩家分数为1000的时候，生成第一个boss
-        if(score == 1000){
+        if(score == 1000)
+        {
+            // 清空全屏普通敌人
+            FindObjectOfType<GameManager>().DesEnemy();
+            // 生成boss1
             FindObjectOfType<GameManager>().SpawnNewBoss1();
         }
         
-        // 玩家分数为3000的时候，生成第二个boss
-        else if(score == 3000){
+        // 玩家分数大于等于1500分，小于10000分的时候生成敌人3
+        if(score >= 1500)
+        {
+            FindObjectOfType<GameManager>().SpawnNewEnemy3();
+        }
+
+        // 玩家分数等于10000的时候，生成第二个boss
+        if(score == 10000)
+        {
             FindObjectOfType<GameManager>().SpawnNewBoss2();
+        }
+
+        // 玩家分数大于等于20000的时候，生成敌人4
+        if(score >= 20000)
+        {
+            Invoke("FindObjectOfType<GameManager>().SpawnNewEnemy4()",1);
+            // FindObjectOfType<GameManager>().SpawnNewEnemy4();
         }
     }
 

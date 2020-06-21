@@ -184,11 +184,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   bulletSpeed: 10
-  bulletPrefab: {fileID: 3079680371338065363, guid: 389530c2148cf7d43ab1db68bc86c734,
+  bulletPrefab: {fileID: 8872504377030655744, guid: 0134e927d5786054d8b976f9f307f4ff,
     type: 3}
   firePoint: {fileID: 1408771658851403452}
   fireRate: 3
-  exploPrefab: {fileID: 8672706498913736987, guid: 6277d6f4f2ba6f84680acceac91d457f,
+  exploPrefab: {fileID: 5800974609183959504, guid: 01bce4d6b5a38a24ca7531bc8bc04113,
     type: 3}
   PropTitle:
   - {fileID: 5687675654525569099, guid: b06dc666a6ced18489f86fcc22fec2f4, type: 3}

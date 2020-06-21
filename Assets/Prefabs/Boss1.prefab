@@ -152,14 +152,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c548628a55a88ea47b0399efea19be23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.5
-  bulletSpeed: 5
-  fireDirection: {x: 0, y: 0, z: 0}
-  startQuaternion: {x: 0, y: 0, z: 0, w: 0}
+  bulletSpeed: 4
   bulletPrefab: {fileID: 5829344209060654233, guid: 8c6f2562dacc5c84f9aff9b055cc3fb2,
     type: 3}
-  fireRate: 3
-  exploPrefab: {fileID: 8672706498913736987, guid: 6277d6f4f2ba6f84680acceac91d457f,
+  fireRate: 5
+  exploPrefab: {fileID: 1292163883151175632, guid: eee83b72c8303314da64175fcf21889f,
+    type: 3}
+  dropBloodPrefab: {fileID: 5800974609183959504, guid: 01bce4d6b5a38a24ca7531bc8bc04113,
     type: 3}
   PropTitle:
   - {fileID: 476923163327969647, guid: c3b28120c84845440a6585481dfa0072, type: 3}
