@@ -13,6 +13,8 @@ TagManager:
   - Boss1
   - Boss2
   - BulletPlus
+  - RosefinchBullet
+  - RosefinchProp
   layers:
   - Default
   - TransparentFX

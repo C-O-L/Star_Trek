@@ -15,7 +15,7 @@ public class EnemyFour : MonoBehaviour
     public GameObject dropBloodPrefab;                                      //掉血动画
     public GameObject[] PropTitle;                                          //一系列道具
     public GameObject prop;
-    int hp = 2000;                                                         //血量
+    int hp = 20000;                                                         //血量
 
     // Start is called before the first frame update
     void Start()
@@ -101,6 +101,15 @@ public class EnemyFour : MonoBehaviour
             Destroy(explode, 0.5f);                                         //0.5s之后销毁explode
             Destroy(collision.gameObject);
             TakeDamage(200);                                                //调用TakeDamage方法,血量减200
+        }
+        //如果碰到朱雀子弹
+        if(collision.CompareTag("RosefinchBullet"))
+        {
+            //在自己的位置生成dropBloodPrefab，不旋转, 并保存在explode中
+            GameObject explode = Instantiate(dropBloodPrefab, transform.position, Quaternion.identity);
+            Destroy(explode, 0.5f);                                         //0.5s之后销毁explode
+            Destroy(collision.gameObject);
+            TakeDamage(5000);                                               //调用TakeDamage方法,血量减5000
         }
     }
     

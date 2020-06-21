@@ -13,7 +13,7 @@ public class BossTwo : MonoBehaviour
     public GameObject dropBloodPrefab;                                      //掉血动画
     public GameObject[] PropTitle;                                          //一系列道具
     public GameObject prop;
-    int hp = 500000;                                                        //血量
+    int hp = 1000000;                                                       //血量
 
     // Start is called before the first frame update
     void Start()
@@ -89,7 +89,7 @@ public class BossTwo : MonoBehaviour
             GameObject explode = Instantiate(dropBloodPrefab, transform.position, Quaternion.identity);
             Destroy(explode, 0.5f);                                         //0.5s之后销毁explode
             Destroy(collision.gameObject);                                  //销毁子弹
-            TakeDamage(100);                                                //调用TakeDamage方法,血量减100
+            TakeDamage(200);                                                //调用TakeDamage方法,血量减100
         }
         //如果碰到子弹plus
         if(collision.CompareTag("BulletPlus"))
@@ -98,7 +98,16 @@ public class BossTwo : MonoBehaviour
             GameObject explode = Instantiate(dropBloodPrefab, transform.position, Quaternion.identity);
             Destroy(explode, 0.5f);                                         //0.5s之后销毁explode
             Destroy(collision.gameObject);
-            TakeDamage(200);                                                //调用TakeDamage方法,血量减200
+            TakeDamage(500);                                                //调用TakeDamage方法,血量减500
+        }
+        //如果碰到朱雀子弹
+        if(collision.CompareTag("RosefinchBullet"))
+        {
+            //在自己的位置生成dropBloodPrefab，不旋转, 并保存在explode中
+            GameObject explode = Instantiate(dropBloodPrefab, transform.position, Quaternion.identity);
+            Destroy(explode, 0.5f);                                         //0.5s之后销毁explode
+            Destroy(collision.gameObject);
+            TakeDamage(5000);                                               //调用TakeDamage方法,血量减5000
         }
     }
     

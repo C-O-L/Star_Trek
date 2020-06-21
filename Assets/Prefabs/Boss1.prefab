@@ -155,14 +155,13 @@ MonoBehaviour:
   bulletSpeed: 4
   bulletPrefab: {fileID: 5829344209060654233, guid: 8c6f2562dacc5c84f9aff9b055cc3fb2,
     type: 3}
-  fireRate: 5
+  fireRate: 2
   exploPrefab: {fileID: 1292163883151175632, guid: eee83b72c8303314da64175fcf21889f,
     type: 3}
   dropBloodPrefab: {fileID: 5800974609183959504, guid: 01bce4d6b5a38a24ca7531bc8bc04113,
     type: 3}
   PropTitle:
-  - {fileID: 476923163327969647, guid: c3b28120c84845440a6585481dfa0072, type: 3}
-  - {fileID: 5687675654525569099, guid: b06dc666a6ced18489f86fcc22fec2f4, type: 3}
+  - {fileID: 7712517998640718774, guid: a071e71d02778e54aa30874ea8113bd4, type: 3}
   prop: {fileID: 0}
 --- !u!82 &1402801740519076938
 AudioSource:

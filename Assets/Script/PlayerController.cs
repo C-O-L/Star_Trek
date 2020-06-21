@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public GameObject[] bulletPrefab;                           //子弹
     public Transform firePoint;                                 //发炮位置
     public GameObject bullet;
-    bool firePlus = false;                                      //是否发射BulletPlus
+    int firebullet = 0;                                         //判断发射哪种子弹
 
     // Start is called before the first frame update
     void Start()
@@ -39,11 +39,14 @@ public class PlayerController : MonoBehaviour
         if(timer > fireRate && Input.GetKey(KeyCode.Space))     //按空格键
         {
             timer = 0;
-            if(firePlus == false){
+            if(firebullet == 0){
                 Fire();                                         //调用Fier方法
             }
-            if(firePlus == true){
+            if(firebullet == 1){
                 FirePlus();                                     //调用FierPlus方法
+            }
+            if(firebullet == 2){
+                FireRosefinch();
             }
         }
     }
@@ -53,6 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         au.Play();                                              //播放发射子弹的音效
 
+        // 实例化子弹数组中的第一个
         bullet = Instantiate(bulletPrefab[0], firePoint.position, Quaternion.identity);
 
         //抓取子弹的Rigidbody2D组件，速度方向设置为上，大小设置为bulletSpeed
@@ -76,6 +80,20 @@ public class PlayerController : MonoBehaviour
         Destroy(bullet, 0.7f);
     }
 
+    //发射朱雀子弹的方法
+    void FireRosefinch()
+    {
+        au.Play();                                              //播放发射子弹的音效
+        
+        bullet = Instantiate(bulletPrefab[2], transform.position, Quaternion.identity);
+
+        //抓取子弹的Rigidbody2D组件，速度方向设置为上，大小设置为bulletSpeed
+        bullet.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletSpeed;
+
+        //定时销毁子弹
+        Destroy(bullet, 1.0f);
+    }
+
     // 玩家碰撞方法
     private void OnTriggerEnter2D(Collider2D collision) 
     {
@@ -88,7 +106,7 @@ public class PlayerController : MonoBehaviour
         //如果碰到子弹道具
         if(collision.CompareTag("BulletProp"))
         {
-            firePlus = true;
+            firebullet = 1;
             Destroy(collision.gameObject);                        //销毁子弹道具
         }
         //如果碰到生命道具
@@ -96,6 +114,12 @@ public class PlayerController : MonoBehaviour
         {
             FindObjectOfType<UIManager>().RestoreHealth();        //调用UIManager的RestoreHealth方法，恢复血量
             Destroy(collision.gameObject);                        //销毁生命道具
+        }
+        //如果碰到朱雀子弹道具
+        if(collision.CompareTag("RosefinchProp"))
+        {
+            firebullet = 2;
+            Destroy(collision.gameObject);
         }
     }
 }

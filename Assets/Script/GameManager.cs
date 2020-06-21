@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
     // 生成第一个boss的方法
     public void SpawnNewBoss1()
     {
-        Instantiate (boss1, new Vector3 (9f, 10.0f, 0f), Quaternion.identity);
+        Instantiate (boss1, new Vector3 (0f, 9.0f, 0f), Quaternion.identity);
         isEnemy = false;                                                            //生成第一个boss后不再生成普通敌人
     }
 

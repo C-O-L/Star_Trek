@@ -161,6 +161,6 @@ MonoBehaviour:
   dropBloodPrefab: {fileID: 5800974609183959504, guid: 01bce4d6b5a38a24ca7531bc8bc04113,
     type: 3}
   PropTitle:
-  - {fileID: 5687675654525569099, guid: b06dc666a6ced18489f86fcc22fec2f4, type: 3}
+  - {fileID: 7712517998640718774, guid: a071e71d02778e54aa30874ea8113bd4, type: 3}
   - {fileID: 476923163327969647, guid: c3b28120c84845440a6585481dfa0072, type: 3}
   prop: {fileID: 0}

@@ -58,7 +58,7 @@ public class BossOne : MonoBehaviour
             GameObject explode = Instantiate(dropBloodPrefab, transform.position, Quaternion.identity);
             Destroy(explode, 0.5f);                                         //0.5s之后销毁explode
             Destroy(collision.gameObject);                                  //销毁子弹
-            TakeDamage(100);                                                //调用TakeDamage方法,血量减100
+            TakeDamage(200);                                                //调用TakeDamage方法,血量减200
         }
         //如果碰到子弹plus
         if(collision.CompareTag("BulletPlus"))
@@ -67,7 +67,7 @@ public class BossOne : MonoBehaviour
             GameObject explode = Instantiate(dropBloodPrefab, transform.position, Quaternion.identity);
             Destroy(explode, 0.5f);                                         //0.5s之后销毁explode
             Destroy(collision.gameObject);
-            TakeDamage(200);                                                //调用TakeDamage方法,血量减200
+            TakeDamage(500);                                                //调用TakeDamage方法,血量减500
         }
     }
     
@@ -104,20 +104,13 @@ public class BossOne : MonoBehaviour
     // 掉落道具的方法
     void Produce()
     {
-        Vector2 spawnPos = new Vector2(Random.Range(-26f, 26f), 15f);       //在区间内生成道具
-        int num = Random.Range(1, 3);                                       //生成随机数范围1-2
-		if(num == 1){
+        Vector2 spawnPos = new Vector2(Random.Range(0, 0), 15f);            //在区间内生成道具
+        
             //实例化PropTitle[]道具数组中的第一个
             prop = Instantiate(PropTitle[0], spawnPos, Quaternion.identity);
             //定时销毁道具
             Destroy(prop, 100.0f);
-        }
-        if(num == 2){
-            //实例化PropTitle[]道具数组中的第二个
-            prop = Instantiate(PropTitle[1], spawnPos, Quaternion.identity);
-            //定时销毁道具
-            Destroy(prop, 100.0f);
-        }
+        
     }
 
 }
